@@ -1,0 +1,34 @@
+import type { Metadata } from "next";
+import { Cinzel, Inter } from "next/font/google";
+import "./globals.css";
+
+const cinzel = Cinzel({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "RPG do Axel",
+  description: "Gerenciador de RPG de mesa — mapas, fichas e mestre.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="pt-BR"
+      className={`${cinzel.variable} ${inter.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">{children}</body>
+    </html>
+  );
+}
